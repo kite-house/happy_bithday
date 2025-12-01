@@ -1,8 +1,9 @@
-from aiogram import F, Router, types
+from aiogram import Router, types
 from aiogram.filters.command import Command
 from database import requests
 from datetime import datetime
 import sqlalchemy.orm.exc
+
 router = Router()
 
 @router.message(Command('start'))
