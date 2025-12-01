@@ -24,8 +24,7 @@ async def set_birthday(telegram_id: int, name: str, date_birth: datetime) -> Non
     async with async_session() as session:
         birthday = await session.scalar(select(Birthday).where(Birthday.owner_id == telegram_id, Birthday.name == name))
 
-        if birthday:
-            raise ValueError
+        if birthday: raise KeyError
 
         session.add(Birthday(
             owner_id = telegram_id,

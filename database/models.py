@@ -13,7 +13,7 @@ class User(Base):
 
 
 class Birthday(Base):
-    __tablename__ = 'Birthdays'
+    __tablename__ = 'birthdays'
 
     id: Mapped[int] = mapped_column(primary_key=True)
     owner_id: Mapped[int] = mapped_column(ForeignKey(User.id))
