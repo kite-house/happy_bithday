@@ -58,3 +58,10 @@ async def add(message: types.Message):
         return await message.reply("Вы не добавили ещё ни одной записи!")
 
     await message.reply("\n".join(f"{item.name.capitalize()}: {datetime.strftime(item.date_birth, '%d.%m.%Y')}" for item in data))
+
+@router.message(Command('help'))
+async def help(message: types.Message):
+    await message.reply('Подсказки: \n'
+                        '/add Имя Дата - Добавить дату рождение по имени\n'
+                        '/del Имя - Удалить запись по имени\n'
+                        '/get - Получить все записи')
