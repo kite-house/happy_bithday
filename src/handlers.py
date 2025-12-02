@@ -58,7 +58,7 @@ async def add(message: types.Message):
     if not data:
         return await message.reply("Вы не добавили ещё ни одной записи!")
 
-    await message.reply("\n".join(f"{item.name.capitalize()}: {datetime.strftime(item.date_birth, '%d.%m.%Y')}" for item in data))
+    await message.reply("\n".join(f"{line.name.capitalize()}: {datetime.strftime(line.date_birth, '%d.%m.%Y')}" for line in data))
 
 @router.message(Command('help'))
 async def help(message: types.Message):

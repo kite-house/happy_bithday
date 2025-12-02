@@ -45,3 +45,8 @@ async def get_birthdays(telegram_id: int) -> Sequence[Birthday]:
     async with async_session() as session:
         birthdays = await session.execute(select(Birthday).where(Birthday.owner_id == telegram_id))
         return birthdays.scalars().all()
+    
+async def get_all_birthdays() -> Sequence[Birthday]:
+    async with async_session() as session:
+        birthdays = await session.execute(select(Birthday))
+        return birthdays.scalars().all()
